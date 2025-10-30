@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botão Voltar ao Topo</title>
+
+<style>
+  body {
+    height: 2000px; /* só para testar a rolagem */
+    font-family: Arial, sans-serif;
+  }
+
+  /* botão fixo no canto direito inferior */
+  #btnTopo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: none; /* começa oculto */
+    transition: all 0.3s ease;
+    
+    /* centralização perfeita */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #btnTopo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  #btnTopo img {
+    width: 52px;
+    height: 39px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Role para baixo e o botão aparecerá</h1>
+
+<!-- botão -->
+<button id="btnTopo">
+  <img src="https://img.icons8.com/?size=100&id=26140&format=png&color=000000" alt="Voltar ao topo">
+</button>
+
+<script>
+  const btn = document.getElementById('btnTopo');
+
+  // mostra o botão quando rolar 300px
+  window.addEventListener('scroll', () => {
+    btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+  });
+
+  // ação de voltar ao topo
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

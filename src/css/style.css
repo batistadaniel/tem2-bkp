@@ -1,0 +1,316 @@
+/* importando fonte */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #eb4034;
+    --bg-color: rgb(255, 255, 245);
+    --branco: #fff;
+    --preto: #000;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    scrollbar-width: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.padding-padrao {
+    padding: 0 50px;
+}
+
+/* CABEÇALHO */
+.header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--cor-primaria);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.menu-btn {
+    min-width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    border: 1px solid var(--cor-primaria);
+    background: transparent;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform .18s ease;
+}
+
+.menu-btn:active {
+    transform: scale(.95);
+}
+
+.ajuste-titulo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.ajuste-titulo a{
+    text-decoration: none;
+}
+.titulo-header {
+    transition: all 0.8s ease;
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+/* MENU LATERAL */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    padding-top: 20px;
+    margin-top: 80px;
+    /* escondido */
+    align-items: center;
+    width: 300px;
+    height: 100%;
+    background-color: var(--bg-color);
+    transition: left 0.6s ease-in-out;
+    z-index: 20;
+}
+
+    /* display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2 colunas *
+    align-content: start;
+    padding: 100px 20px 20px;
+    gap: 12px;
+    transition: left 0.3s ease;
+    z-index: 20; */
+
+.menu.open {
+    left: 0;
+    /* aparece */
+}
+
+.menu-lista{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 16px;
+    gap: 16px;
+    list-style-type: none;
+}
+
+.menu-item{
+    display: flex;
+    width: 100%;
+    height: 126px;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 6px var(--cor-primaria);
+
+}
+
+.menu-item a{
+    display: flex;
+    text-decoration: none;
+    color: var(--cor-primaria);
+    width: 126px;
+    height: 126px;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item:active {
+    transform: scale(.98);
+}
+
+/* .menu a {
+    background: var(--branco);
+    color: var(--cor-primaria);
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease;
+} */
+
+/* .menu a:hover {
+    background: #ffeaea;
+} */
+
+/* FUNDO ESCURO */
+.overlay {
+    display: none;
+    position: fixed;
+    /* margin-top: 80px; */
+    /* bottom: 0;
+    left: 0; */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 15;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.main{
+    width: 100%;
+    height: 100vh;
+    margin-top: 80px;
+}
+
+.banner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 370px;
+    background-color: var(--cor-primaria);
+    color: var(--branco);
+    padding: 0 80px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.banner h1 {
+    transition: font-size 0.3s ease;
+    font-size: clamp(38px, 6vw, 90px);
+    -webkit-text-stroke: 1px var(--preto);
+}
+
+
+.section {
+    display: grid;
+    padding: 80px 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+    /* gap: 20px; */
+}
+
+.section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.section p {
+    font-size: 18px;
+    text-align: justify;
+    margin-bottom: 1em;
+}
+
+.section ul{
+    margin-left: 60px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0;
+    padding: 0 32px;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+    font-size: clamp(16px, 6vw, 12px);
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--cor-primaria);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+  /* botão fixo no canto direito inferior */
+.btnTopo {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    /* margin-bottom: 80px; */
+    background-color: var(--branco);
+    border: 1px solid var(--preto);
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: none; /* começa oculto */
+    transition: all 0.3s ease-in-out;
+    
+    /* centralização perfeita */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+}
+
+.btnTopo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.btnTopo img {
+    width: 52px;
+    height: 52px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .padding-padrao {
+        padding: 0 20px;
+    }
+    .footer{
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-header {
+        font-size: 22px;
+    }
+    .banner{
+        height: 200px;
+    }
+    .footer{
+        font-size: 12px;
+    }
+    /* .overlay{
+        height: calc(100vh - 136px);
+    } */
+}
+
+@media screen and (max-width: 354px) {
+    .titulo-header {
+        color: #000;
+        font-size: 18px;
+        /* font-size: clamp(20px, 6vw, 10px); */
+    }
+}
+
+/* @media (min-width: 480px){
+    .overlay{
+        height: calc(100vh - 136px);
+    }
+} */
